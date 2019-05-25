@@ -1,4 +1,7 @@
-
+/**
+ * @author Goodwish Matyila
+ * @param {worker} worker thread
+ */
 const viewThread = new Worker('dist/helper.js');
 
 function requestView(viewMessenger)
@@ -11,7 +14,6 @@ function requestView(viewMessenger)
 
 addEventListener('hashchange', function()
 {
-
     if(document.getElementById('root') !== null)
     {
         let part = location.hash.split('#').join('').split('');

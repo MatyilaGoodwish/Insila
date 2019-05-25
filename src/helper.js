@@ -1,5 +1,4 @@
 addEventListener('message', 
-
 function(url)
 {
     fetch(url.data).then(function(response)
