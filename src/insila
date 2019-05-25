@@ -1,3 +1,4 @@
+
 const viewThread = new Worker('dist/helper.js');
 
 function requestView(viewMessenger)
@@ -8,29 +9,20 @@ function requestView(viewMessenger)
     }
 }
 
-
 addEventListener('hashchange', function()
 {
 
     if(document.getElementById('root') !== null)
     {
         let part = location.hash.split('#').join('').split('');
-
         part.push('.html');
-    
         const viewDirectory = '../views' + part.join('');
-    
         console.warn(viewDirectory);
-    
         requestView((viewThread.postMessage)(viewDirectory));
-    
         console.log('retrieve view template from views/');
-    
     }else{
-      
         RunError()
     }
-    
 })
 
 function RunError()
@@ -43,7 +35,6 @@ function RunError()
     </pre>
 `) 
 }
-
 
 viewThread.addEventListener('message', function(view)
 {
